@@ -7,13 +7,15 @@ def test_analyze_text_stop_words():
     result = analyze_text(text)
     assert result["word_count"] == 7
     assert result["top_words"] == [
-        {'count': 1, 'word': 'b'}, # b is not presented in stop words
+        {"count": 1, "word": "b"},  # b is not presented in stop words
     ]
+
 
 def test_analyze_with_apostrophe():
     text = "I don't know if she's here."
     result = analyze_text(text)
     assert result["word_count"] == 6
+
 
 def test_analyze_text_with_ellipsis():
     text = "I'm not sure about it... Wait"
@@ -21,13 +23,14 @@ def test_analyze_text_with_ellipsis():
     assert result["word_count"] == 6
     assert result["sentence_count"] == 2
 
+
 def test_analyze_text_without_delimiters_one_word():
     text = "Wait \n"
     result = analyze_text(text)
     assert result["word_count"] == 1
     assert result["sentence_count"] == 1
-    assert result["top_words"] == [
-        {'count': 1, 'word': 'wait'}]
+    assert result["top_words"] == [{"count": 1, "word": "wait"}]
+
 
 def test_analyze_text_with_quotes():
     text = "What does 'generics' mean? Generics are abstractions"
@@ -36,12 +39,13 @@ def test_analyze_text_with_quotes():
     assert result["word_count"] == 7
     assert result["sentence_count"] == 2
     assert result["top_words"] == [
-        {'count': 2, 'word': 'generics'},  # without apostrophes + combined by lowercase
-        {'count': 1, 'word': 'what'},
-        {'count': 1, 'word': 'does'},
-        {'count': 1, 'word': 'mean'},
-        {'count': 1, 'word': 'abstractions'},
+        {"count": 2, "word": "generics"},  # without apostrophes + combined by lowercase
+        {"count": 1, "word": "what"},
+        {"count": 1, "word": "does"},
+        {"count": 1, "word": "mean"},
+        {"count": 1, "word": "abstractions"},
     ]
+
 
 def test_analyze_text_numbers():
     text = "In 2023, the team processed 32 requests. Over the past 5 days, the system ran 32 tests."
@@ -51,12 +55,13 @@ def test_analyze_text_numbers():
     assert result["char_count_without_spaces"] == 71
     assert result["sentence_count"] == 2
     assert result["top_words"] == [
-        {'count': 2, 'word': '32'},
-        {'count': 1, 'word': '2023'},
-        {'count': 1, 'word': 'team'},
-        {'count': 1, 'word': 'processed'},
-        {'count': 1, 'word': 'requests'}
-   ]
+        {"count": 2, "word": "32"},
+        {"count": 1, "word": "2023"},
+        {"count": 1, "word": "team"},
+        {"count": 1, "word": "processed"},
+        {"count": 1, "word": "requests"},
+    ]
+
 
 def test_analyze_text_small_text():
     text = "Some example text. Another sentence!"
@@ -86,9 +91,9 @@ def test_analyze_text_medium_text():
     assert result["char_count_without_spaces"] == 300
     assert result["sentence_count"] == 9
     assert result["top_words"] == [
-    { "word": "fox", "count": 6 },
-    { "word": "dog", "count": 6 },
-    { "word": "friendship", "count": 2 },
-    { "word": "animals", "count": 2 },
-    { "word": "over", "count": 1 }
-  ]
+        {"word": "fox", "count": 6},
+        {"word": "dog", "count": 6},
+        {"word": "friendship", "count": 2},
+        {"word": "animals", "count": 2},
+        {"word": "over", "count": 1},
+    ]

@@ -25,6 +25,7 @@ STOP_WORDS = [
 DELIMITERS = [".", "!", "?"]
 PUNCTUATION = [",", '"']
 
+
 def get_top_five(words):
     top_five = {}
 
@@ -35,15 +36,14 @@ def get_top_five(words):
             top_five[key] = value
         else:
             smallest_value = min(top_five.values())
-            smallest_key = [
-                key for key, value in top_five.items() if value == smallest_value
-            ][0]
+            smallest_key = [key for key, value in top_five.items() if value == smallest_value][0]
             if value > smallest_value:
                 del top_five[smallest_key]
                 top_five[key] = value
     top_five = [{"word": key, "count": value} for key, value in top_five.items()]
 
     return sorted(top_five, key=lambda entry: entry["count"], reverse=True)
+
 
 def analyze_text(text: str) -> dict:
     word_count = 0
