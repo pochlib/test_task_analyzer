@@ -4,8 +4,9 @@ Flask project for text analytics.
 * Detecting top 5 words and ignoring stop-words
 
 ### Running with Docker
-1. Build docker image ```docker build -t test_task_analyzer.```
-2. Run docker container ```docker run -p 5000:5000 test_task_analyzer```
+1. ```git clone https://github.com/pochlib/test_task_analyzer```
+2. Build docker image ```docker build -t test_task_analyzer.```
+3. Run docker container ```docker run -p 5000:5000 test_task_analyzer```
 
 Project should be accessible at http://127.0.0.1:5000.
 
