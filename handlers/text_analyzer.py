@@ -88,6 +88,3 @@ def analyze_text(text: str) -> dict:
         "sentence_count": sentence_count,
         "top_words": top_words,
     }
-
-print(analyze_text(text = 'What'))
-
